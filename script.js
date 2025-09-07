@@ -1,4 +1,7 @@
-
+const plantCards = document.getElementById("plant-cards");
+const loader = document.getElementById("loader");
+const cartContainer = document.getElementById("cart-container");
+let cartList = [];
 
 const manageLoader = (loadingStatus) => {
     if(loadingStatus){
