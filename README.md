@@ -1,9 +1,10 @@
 1) What is the difference between var, let, and const?
 Ans:
+
 var is function-scoped variable. On the other hand, let and const are block-scoped variable.
 Value of var ,let can be redeclared and reassigned.  Value of const can't be redeclared and reassigned.
 
-2) What is the difference between map(), forEach(), and filter()?
+3) What is the difference between map(), forEach(), and filter()?
 Ans:
 
 map(): map() transforms every element in an array. It returns a new array with the transformed values. The original array is not modified.
