@@ -181,3 +181,5 @@ const removeCart = (plantName) => {
     showCartList(cartList);
 }
 
+loadAllCategories();
+loadAllPlants();
