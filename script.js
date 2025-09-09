@@ -4,17 +4,17 @@ const cartContainer = document.getElementById("cart-container");
 let cartList = [];
 
 const manageLoader = (loadingStatus) => {
-    if(loadingStatus){
+    if (loadingStatus) {
         loader.classList.remove("hidden");
         plantCards.classList.add("hidden");
     }
-    else{
+    else {
         loader.classList.add("hidden");
         plantCards.classList.remove("hidden");
     }
 }
 
-const loadAllCategories = async() => {
+const loadAllCategories = async () => {
     const url = "https://openapi.programming-hero.com/api/categories";
     const res = await fetch(url);
     const data = await res.json();
@@ -30,7 +30,7 @@ const showAllCategories = (categories) => {
     });
 }
 
-const loadAllPlants = async() => {
+const loadAllPlants = async () => {
     manageLoader(true);
     const url = "https://openapi.programming-hero.com/api/plants";
     const res = await fetch(url);
@@ -74,7 +74,7 @@ const removeActive = () => {
     });
 }
 
-const loadPlantsByCategory = async(id) => {
+const loadPlantsByCategory = async (id) => {
     manageLoader(true);
     const url = `https://openapi.programming-hero.com/api/category/${id}`;
     const res = await fetch(url);
@@ -111,7 +111,7 @@ const showPlantsByCategory = (plants, id) => {
     manageLoader(false);
 }
 
-const loadPlantDetail = async(id) => {
+const loadPlantDetail = async (id) => {
     const url = `https://openapi.programming-hero.com/api/plant/${id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -134,7 +134,7 @@ const showPlantDetail = (plant) => {
 plantCards.addEventListener('click', (e) => addToCart(e));
 
 const addToCart = (e) => {
-    if(e.target.innerText == "Add to Cart"){
+    if (e.target.innerText == "Add to Cart") {
         const name = e.target.parentNode.parentNode.children[1].children[0].innerText;
         const price = e.target.parentNode.parentNode.children[1].children[2].children[1].innerText.slice(1);
         const cartData = {
@@ -143,12 +143,13 @@ const addToCart = (e) => {
             quantity: 1
         };
         let existingPlant = cartList.find(cart => cart.plantName === cartData.plantName);
-        if(existingPlant){
+        if (existingPlant) {
             existingPlant.quantity++;
         }
-        else{
+        else {
             cartList.push(cartData);
         }
+        alert(`${name} has been added to the cart.`);
 
         showCartList(cartList);
     }
